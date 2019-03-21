@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zhizhuotec.user.mapper.UserMapper">
+
+	<select id="findById" parameterType="String" resultType="User">
+		SELECT * FROM PERSONAL_User WHERE id = #{id}
+	</select>
+	
+	<select id="findByIdentifier" parameterType="UserAuths" resultType="UserAuths">
+		SELECT * FROM PERSONAL_UserAuths WHERE identityType = #{identityType}
+		and identifier=#{identifier}
+	</select>
+
+	<select id="login" parameterType="UserAuths" resultType="Map">
+		SELECT
+		a.id,a.avatar,a.role,a.status,
+		b.identifier,b.credential,b.verified,b.login_time,b.login_ip,
+		c.nick_name,c.age,c.stature,c.weight,c.sex,c.birthday,c.user_aim_step
+		FROM personal_user a
+		LEFT JOIN personal_user_auths b ON (a.id = b.user_id)
+		LEFT JOIN personal_user_setting c ON (a.id = c.user_id)
+		WHERE b.identifier = #{identifier} AND b.identity_type = #{identityType}
+	</select>
+	
+	<update id="loginIp" parameterType="UserAuths">
+		UPDATE personal_user_auths SET login_time = #{loginTime},login_ip = #{loginIp} WHERE user_id = #{id}
+	</update>
+	
+	<select id="getMsgFromUId" parameterType="UserAuths" resultType="Map">
+		SELECT
+		a.role,a.status,a.avatar,
+		b.id,b.userId,b.verified,b.credential,
+		c.nickName
+		FROM PERSONAL_User a
+		LEFT JOIN PERSONAL_UserAuths b ON (a.id = b.userId)
+		LEFT JOIN PERSONAL_UserSetting c ON (a.id = c.userId)
+		WHERE b.userId=#{userId} AND b.identityType = #{identityType}
+	</select>
+	
+	<select id="getMsgFromIdentifier" parameterType="UserAuths" resultType="Map">
+		SELECT
+		a.role,a.status,a.avatar,
+		b.id,b.userId,b.verified,b.credential,
+		c.nickName
+		FROM PERSONAL_User a
+		LEFT JOIN PERSONAL_UserAuths b ON (a.id = b.userId)
+		LEFT JOIN PERSONAL_UserSetting c ON (a.id = c.userId)
+		WHERE b.identifier = #{identifier} AND b.identityType = #{identityType}
+	</select>
+	
+	<update id="updateByCredential" parameterType="UserAuths">
+		UPDATE PERSONAL_UserAuths SET credential = #{credential} WHERE id = #{id}
+	</update>
+	
+	<update id="updateByIdentifier" parameterType="UserAuths">
+		UPDATE PERSONAL_UserAuths SET identifier = #{identifier} WHERE id = #{id}
+	</update>
+	
+	<insert id="register" parameterType="Map">
+		INSERT INTO PERSONAL_User(id,avatar,role,status)
+		VALUES(#{uId},#{avatar},#{role},#{status});
+		INSERT INTO PERSONAL_UserAuths(id,userId,identityType,identifier,credential,verified,registerTime,registerIp,loginTime,loginIp)
+		VALUES(#{b_id},#{uId},#{identityType},#{identifier},#{credential},#{verified},#{registerTime},#{registerIp},#{loginTime},#{loginIp});
+		INSERT INTO PERSONAL_UserSetting(id,userId,nickName,age,stature,weight,birthday,sex,hand,userAimStep,deviceStatus,remark)
+		VALUES(#{c_id},#{uId},#{nickName},#{age},#{stature},#{weight},#{birthday},#{sex},#{hand},#{userAimStep},#{deviceStatus},#{remark})
+	</insert>
+	
+	<update id="updateSetting" parameterType="Map">
+		UPDATE PERSONAL_UserSetting
+ 		<trim prefix="set" suffixOverrides=",">
+			<if test="nickName!=null">nickName=#{nickName},</if>
+			<if test="age!=null">age=#{age},</if>
+			<if test="stature!=null">stature=#{stature},</if>
+			<if test="weight!=null">weight=#{weight},</if>
+			<if test="birthday!=null">birthday=#{birthday},</if>
+			<if test="sex!=null">sex=#{sex},</if>
+			<if test="hand!=null">hand=#{hand},</if>
+			<if test="userAimStep!=null">userAimStep=#{userAimStep},</if>
+		 </trim>
+		WHERE userId=#{uId}
+	</update>
+	
+	<update id="updateAvatar" parameterType="User">
+		UPDATE PERSONAL_User SET avatar = #{avatar} WHERE id= #{id}
+	</update>
+</mapper>
