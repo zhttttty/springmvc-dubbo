@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/zhizhuotec-android/zhizhuotec-android.iml" filepath="$PROJECT_DIR$/zhizhuotec-android/zhizhuotec-android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zhizhuotec-common-soa/zhizhuotec-common-soa.iml" filepath="$PROJECT_DIR$/zhizhuotec-common-soa/zhizhuotec-common-soa.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zhizhuotec-config/zhizhuotec-config.iml" filepath="$PROJECT_DIR$/zhizhuotec-config/zhizhuotec-config.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zhizhuotec-health-api/zhizhuotec-health-api.iml" filepath="$PROJECT_DIR$/zhizhuotec-health-api/zhizhuotec-health-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zhizhuotec-health-provider/zhizhuotec-health-provider.iml" filepath="$PROJECT_DIR$/zhizhuotec-health-provider/zhizhuotec-health-provider.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zhizhuotec-user-api/zhizhuotec-user-api.iml" filepath="$PROJECT_DIR$/zhizhuotec-user-api/zhizhuotec-user-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zhizhuotec-user-provider/zhizhuotec-user-provider.iml" filepath="$PROJECT_DIR$/zhizhuotec-user-provider/zhizhuotec-user-provider.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/zhizhuotec20180518-soa.iml" filepath="$PROJECT_DIR$/.idea/zhizhuotec20180518-soa.iml" />
+    </modules>
+  </component>
+</project>

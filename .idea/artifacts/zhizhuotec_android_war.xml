@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="zhizhuotec-android:war">
+    <output-path>$PROJECT_DIR$/zhizhuotec-android/target</output-path>
+    <root id="archive" name="zhizhuotec-android-0.0.1-SNAPSHOT.war">
+      <element id="artifact" artifact-name="zhizhuotec-android:war exploded" />
+    </root>
+  </artifact>
+</component>

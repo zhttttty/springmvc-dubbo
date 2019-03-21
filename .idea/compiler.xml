@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="zhizhuotec-android" />
+        <module name="zhizhuotec-common-soa" />
+        <module name="zhizhuotec-health-api" />
+        <module name="zhizhuotec-health-provider" />
+        <module name="zhizhuotec-user-api" />
+        <module name="zhizhuotec-user-provider" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="zhizhuotec-android" target="1.8" />
+      <module name="zhizhuotec-common-soa" target="1.8" />
+      <module name="zhizhuotec-config" target="1.8" />
+      <module name="zhizhuotec-health-api" target="1.8" />
+      <module name="zhizhuotec-health-provider" target="1.8" />
+      <module name="zhizhuotec-user-api" target="1.8" />
+      <module name="zhizhuotec-user-provider" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

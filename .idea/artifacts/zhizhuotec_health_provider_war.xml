@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="zhizhuotec-health-provider:war">
+    <output-path>$PROJECT_DIR$/zhizhuotec-health-provider/target</output-path>
+    <root id="archive" name="zhizhuotec-health-provider-0.0.1-SNAPSHOT.war">
+      <element id="artifact" artifact-name="zhizhuotec-health-provider:war exploded" />
+    </root>
+  </artifact>
+</component>
